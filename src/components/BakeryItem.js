@@ -4,7 +4,7 @@ import "../App.css";
 function BakeryItem(props) {
     return (
         <div className="BakeryItem">
-            <img src={props.image} alt={props.name} />
+            <img src={props.image} alt={props.name} width="200" height="200" />
             <p>{props.name}</p>
             <p>{props.description}</p>
             <p>${props.price}</p>
