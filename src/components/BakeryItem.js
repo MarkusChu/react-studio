@@ -1,12 +1,12 @@
 import "../App.css";
 
 // TODO: create a component that displays a single bakery item
-function BakeryItem(image, name, price) {
+function BakeryItem(props) {
     return (
         <div className="BakeryItem">
-            <img src={image} alt={name} />
-            <p>{name}</p>
-            <p>${price}</p>
+            <img src={props.image} alt={props.name} />
+            <p>${props.name}</p>
+            <p>${props.price}</p>
         </div>
     );
 }
