@@ -14,14 +14,17 @@ function App() {
   /* add your cart state code here */
   const [cart, setCart] = useState([]);
 
+  const AddToCart = (item) => {
+    setCart([...cart, item]);
+  };
+
   return (
     <div className="App">
       <h1>My Bakery</h1> {/* TODO: personalize your bakery (if you want) */}
 
       {bakeryData.map((item, index) => ( // TODO: map bakeryData to BakeryItem components
         <>
-          <BakeryItem image={item.image} name={item.name} price={item.price} />
-          <button onClick={() => setCart([...cart, item])}>Add to cart</button>
+          <BakeryItem image={item.image} name={item.name} price={item.price} description={item.description} callback={AddToCart}/>
         </>
       ))}
 
