@@ -6,7 +6,9 @@ function BakeryItem(props) {
         <div className="BakeryItem">
             <img src={props.image} alt={props.name} />
             <p>{props.name}</p>
+            <p>{props.description}</p>
             <p>${props.price}</p>
+            <button onClick={() => props.callback(props)}>Add to Cart</button>
         </div>
     );
 }
