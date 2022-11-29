@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import bakeryData from "./assets/bakery-data.json";
 import BakeryItem from "./components/BakeryItem";
 
@@ -13,10 +13,19 @@ function App() {
   // TODO: use useState to create a state variable to hold the state of the cart
   /* add your cart state code here */
   const [cart, setCart] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const AddToCart = (item) => {
     setCart([...cart, item]);
   };
+  
+  useEffect(() => {
+    let total = 0;
+    cart.forEach((item) => {
+      total += item.price;
+    });
+    setTotalPrice(total);
+  }, [cart]);
 
   return (
     <div className="App">
@@ -30,6 +39,7 @@ function App() {
 
       <div>
         <h2>Cart</h2>
+        <p>Total: ${totalPrice}</p>
         {/* TODO: render a list of items in the cart */}
         {cart.map((item, index) => (
           <div>
